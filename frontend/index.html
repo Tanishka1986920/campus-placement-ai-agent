@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Placement AI — University Career Intelligence</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            midnight: "#060913",
+            "navy-950": "#0a0f1d",
+            "navy-900": "#0f172a",
+            "navy-800": "#1e293b",
+            "navy-700": "#334155",
+            brand: {
+              electric: "#2563eb",
+              cyan: "#06b6d4",
+              purple: "#8b5cf6",
+              indigo: "#6366f1",
+              emerald: "#10b981",
+              amber: "#f59e0b"
+            }
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          backgroundImage: {
+            'radial-glow': 'radial-gradient(circle at 50% 0%, rgba(37,99,235,0.18) 0%, rgba(6,182,212,0.08) 40%, transparent 70%)',
+            'radial-purple': 'radial-gradient(circle at 80% 20%, rgba(139,92,246,0.15) 0%, transparent 60%)',
+            'grid-pattern': 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-midnight text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-electric selection:text-white">
+  <!-- Ambient background glow & grid -->
+  <div class="fixed inset-0 bg-radial-glow pointer-events-none z-0"></div>
+  <div class="fixed inset-0 bg-radial-purple pointer-events-none z-0"></div>
+  <div class="fixed inset-0 bg-[size:48px_48px] bg-grid-pattern pointer-events-none z-0 opacity-40"></div>
+
+  <!-- NAVBAR (condensed from stitch export) -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-navy-950/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a class="flex items-center gap-3 group" href="#">
+          <div class="w-10 h-10 rounded-xl overflow-hidden p-0.5 bg-gradient-to-tr from-brand-electric via-brand-cyan to-brand-purple shadow-[0_0_20px_rgba(37,99,235,0.4)] group-hover:scale-105 transition-transform">
+            <img alt="Campus Placement AI Logo" class="w-full h-full object-cover rounded-[10px]" src="https://lh3.googleusercontent.com/aida/AEtjO1ULTyFmLpx9DrCZxYULpSEN1-hM_Y6HNbOVmRcu5ZOBG-uZoGQtdiBhN5HHzfUo17asFC0PtXDZ-I_yzdSRMlOUyNJRaz0fq1ZEJQvtPC96fWx6agvv-VQ7qQ-ImQoKkgDeeCGZfzu5h0HxnEG5fMJcHwok0pgGbjeZ0mfHFlf8-rOsCR0UIbkvx5p3rWvFiQ0ZxxBcfq0HZAU5bcLVY3X499643PuAPlUfZuI3Eq8XvrLdsUL5K37CPkmR" />
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-display font-extrabold text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">Campus Placement AI</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-brand-electric/15 text-blue-400 border border-brand-electric/30 shadow-[0_0_10px_rgba(37,99,235,0.2)]">2025 Edition</span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-medium">University Career Intelligence Platform</p>
+          </div>
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-1 bg-navy-900/70 p-1.5 rounded-full border border-white/5 text-sm font-medium">
+        <a class="px-4 py-1.5 rounded-full bg-brand-electric text-white shadow-md shadow-brand-electric/25 transition-all" href="#command-center">Dashboard</a>
+        <a class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-all" href="#resume-analyzer">Resume AI</a>
+        <a class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-all" href="#ai-assistant">AI Assistant</a>
+        <a class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-all" href="#prep-hub">Practice</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button aria-label="Notifications" class="relative p-2.5 rounded-xl bg-navy-900/80 hover:bg-navy-800 border border-white/10 text-slate-300 hover:text-white transition-all">
+          <span class="material-symbols-outlined text-[20px]">notifications</span>
+        </button>
+        <div class="flex items-center gap-2.5 bg-navy-900/90 hover:bg-navy-800/90 border border-white/10 rounded-full pl-2 pr-3.5 py-1.5 transition-all cursor-pointer group">
+          <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-brand-electric to-brand-cyan flex items-center justify-center font-display font-bold text-xs text-white shadow-sm">AS</div>
+          <div class="hidden sm:block text-left">
+            <p class="text-xs font-semibold text-slate-200 group-hover:text-white leading-tight">Arjun Sharma</p>
+            <p class="text-[10px] text-slate-400 leading-tight">B.Tech CSE '25</p>
+          </div>
+          <span class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="relative z-10 pt-28 pb-20 flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+    <!-- HERO (kept from export) -->
+    <section class="relative pt-6 pb-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-electric/10 border border-brand-electric/30 text-cyan-300 text-xs font-medium backdrop-blur-md">
+            <span class="material-symbols-outlined text-[16px] text-cyan-400">psychology</span>
+            <span>Next-Gen University Placement Intelligence • Powered by GPT-4o</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight leading-[1.1] text-white">
+            Your AI Career <br />
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 text-glow">Co-Pilot</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 font-normal max-w-xl mx-auto lg:mx-0 leading-relaxed">From Resume to Recruitment — Prepare Smarter with AI. Real-time ATS auditing, algorithmic interview simulations, and company-specific hire probability benchmarking.</p>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-display font-semibold text-sm text-white bg-gradient-to-r from-brand-electric via-blue-600 to-brand-indigo shadow-[0_0_25px_rgba(37,99,235,0.45)] transition-all" href="#prep-hub">Start Preparing</a>
+            <a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-display font-semibold text-sm text-slate-200 bg-white/5 hover:bg-white/10 border border-white/15 transition-all" href="#resume-analyzer">Analyze Resume</a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 relative">
+          <div class="relative rounded-2xl p-2 glow-border glass-card shadow-2xl overflow-hidden group">
+            <div class="relative rounded-xl overflow-hidden aspect-video bg-navy-950/80">
+              <img alt="Futuristic AI Career Hologram" class="w-full h-full object-cover transform group-hover:scale-102 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHLTimFREEu9TiZsMpNlv1IJyaN7jUIw9Fecy9o6SK-lqD15JH1U9alAy-7jCIqxUjOkE4lihphx8l9h_LXukxnK6sEoewWNNlFrjDMM6GeaLe2On8ZS1GAKqDZKxb9ZSqf7As9telK5JIFl4b4a5Tz_uxuROC7Ic3aHxlkSbhlOihH265yctnm2zByzdOtOSFv6sIHzZVBBsfQDhIs5lem3ufac_3pRMzO_WCkp47t422GwhN_SStAg" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 glass-card rounded-2xl p-6 border border-white/10 shadow-lg">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-white/10">
+          <div class="flex flex-col items-center justify-center text-center px-4">
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl lg:text-4xl font-extrabold font-display text-white tracking-tight">92%</span>
+              <span class="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">+14% YoY</span>
+            </div>
+            <span class="text-xs text-slate-400 mt-1 font-medium">Offer Success Rate</span>
+          </div>
+
+          <div class="flex flex-col items-center justify-center text-center px-4 pt-4 md:pt-0">
+            <span class="text-3xl lg:text-4xl font-extrabold font-display text-cyan-300 tracking-tight">18,400+</span>
+            <span class="text-xs text-slate-400 mt-1 font-medium">Resumes Benchmarked</span>
+          </div>
+
+          <div class="flex flex-col items-center justify-center text-center px-4 pt-4 md:pt-0">
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl lg:text-4xl font-extrabold font-display text-white tracking-tight">140+</span>
+              <span class="text-xs font-semibold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">Tier 1 &amp; 2</span>
+            </div>
+            <span class="text-xs text-slate-400 mt-1 font-medium">Partner Recruiters</span>
+          </div>
+
+          <div class="flex flex-col items-center justify-center text-center px-4 pt-4 md:pt-0">
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl lg:text-4xl font-extrabold font-display text-emerald-400 tracking-tight">14.8</span>
+              <span class="text-lg font-bold text-slate-300">LPA</span>
+            </div>
+            <span class="text-xs text-slate-400 mt-1 font-medium">Average SDE Package</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- COMMAND CENTER (kept essential cards) -->
+    <section class="space-y-6" id="command-center">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b border-white/10">
+        <div>
+          <div class="flex items-center gap-2 text-cyan-400 text-xs font-mono uppercase tracking-wider font-semibold">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span>Executive Command Center</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1">Welcome back, Arjun 👋</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-0.5">B.Tech Computer Science &amp; Engineering • University Batch of 2025</p>
+        </div>
+
+        <div class="inline-flex items-center gap-3 bg-navy-900 border border-brand-electric/30 px-4 py-2 rounded-xl text-xs">
+          <span class="material-symbols-outlined text-brand-electric text-[20px]">event_available</span>
+          <div>
+            <span class="text-slate-400 block text-[10px] uppercase font-mono">University Drive Window</span>
+            <span class="font-bold text-slate-100">Day-1 Marquee Drives start in <span class="text-cyan-400 font-mono">18 Days</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5">
+        <!-- Readiness card -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-6 glow-border flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-semibold text-white text-sm">Overall Readiness Index</h3>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Top 8th Percentile</span>
+          </div>
+          <div class="my-6 flex items-center justify-center">
+            <div class="relative w-40 h-40 flex items-center justify-center">
+              <svg class="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+                <circle class="text-slate-800" cx="60" cy="60" fill="transparent" r="50" stroke="currentColor" stroke-width="8"></circle>
+                <circle cx="60" cy="60" fill="transparent" r="50" stroke="url(#electricGrad)" stroke-dasharray="314.159" stroke-dashoffset="44" stroke-linecap="round" stroke-width="8"></circle>
+                <defs>
+                  <linearGradient id="electricGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#06b6d4"></stop>
+                    <stop offset="100%" stop-color="#2563eb"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="absolute flex flex-col items-center justify-center text-center">
+                <span class="text-4xl font-extrabold font-display text-white">86%</span>
+                <span class="text-[11px] text-slate-400 font-mono uppercase tracking-wider">Placement Ready</span>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-2 pt-2 border-t border-white/10 text-center">
+            <div class="bg-white/5 p-2 rounded-lg">
+              <span class="text-[10px] text-slate-400 block font-mono">Aptitude</span>
+              <span class="text-xs font-bold text-white font-mono">88%</span>
+            </div>
+            <div class="bg-white/5 p-2 rounded-lg">
+              <span class="text-[10px] text-slate-400 block font-mono">Technical</span>
+              <span class="text-xs font-bold text-cyan-300 font-mono">84%</span>
+            </div>
+            <div class="bg-white/5 p-2 rounded-lg">
+              <span class="text-[10px] text-slate-400 block font-mono">Behavioral</span>
+              <span class="text-xs font-bold text-emerald-400 font-mono">89%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resume card -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-blue-400 text-[20px]">description</span>
+                <h3 class="font-display font-semibold text-white text-sm">Resume ATS Health</h3>
+              </div>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">Tier-1 Calibrated</span>
+            </div>
+            <div class="mt-5 flex items-baseline gap-2">
+              <span class="text-4xl font-extrabold font-display text-white">88</span>
+              <span class="text-slate-400 text-sm font-mono">/ 100</span>
+              <span class="ml-auto text-xs text-emerald-400 font-medium flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">trending_up</span> +14 pts from v1</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+            <span class="text-xs text-slate-400">1 Missing High-yield Keyword</span>
+            <a class="text-xs text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1" href="#resume-analyzer">View Audit <span class="material-symbols-outlined text-[14px]">arrow_forward</span></a>
+          </div>
+        </div>
+
+        <!-- Interview card -->
+        <div class="lg:col-span-4 glass-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-purple-400 text-[20px]">videocam</span>
+                <h3 class="font-display font-semibold text-white text-sm">Interview Simulator</h3>
+              </div>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30">AI Proctored</span>
+            </div>
+            <div class="mt-5 flex items-baseline gap-2">
+              <span class="text-4xl font-extrabold font-display text-white">78%</span>
+              <span class="text-slate-400 text-sm font-mono">Confidence</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+            <span class="text-xs text-slate-400">Tone &amp; STAR Clarity: 8.4/10</span>
+            <button class="text-xs text-brand-purple hover:text-purple-300 font-semibold flex items-center gap-1" onclick="startMockSim()">Launch Mock <span class="material-symbols-outlined text-[14px]">play_arrow</span></button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- AI ASSISTANT - includes query input, suggested chips, response container -->
+    <section class="space-y-6" id="ai-assistant">
+      <div class="flex items-center justify-between pb-2 border-b border-white/10">
+        <div>
+          <div class="flex items-center gap-2 text-cyan-400 text-xs font-mono uppercase tracking-wider font-semibold">
+            <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+            <span>Real-Time Career Intelligence</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1">AI Placement Assistant</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Instant company insights, technical drilldowns, and salary negotiation parameters.</p>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6 sm:p-8 glow-border shadow-2xl relative overflow-hidden">
+        <div class="relative">
+          <div class="relative flex items-center">
+            <input id="ai-query-input" class="w-full bg-navy-950/90 border border-white/15 focus:border-cyan-400/60 rounded-xl px-5 py-4 pl-12 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-electric/40 transition-all font-sans" type="text" placeholder="Ask anything about placements (e.g. Goldman Sachs OA format, Amazon Bar Raiser questions, Java concurrency)..." />
+            <span class="material-symbols-outlined text-slate-400 absolute left-4 text-[22px]">psychology</span>
+            <button id="ask-ai-button" class="absolute right-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-electric to-blue-600 hover:from-blue-600 hover:to-indigo-600 text-white font-display font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-brand-electric/30 transition-all"> <span class="material-symbols-outlined text-[16px]">auto_awesome</span> <span>Ask AI</span></button>
+          </div>
+
+          <div class="mt-4 flex flex-wrap items-center gap-2">
+            <span class="text-xs text-slate-400 font-mono mr-1">Suggested:</span>
+            <button class="suggestion-chip" onclick="fillQuery('How can I improve my resume for Tier-1 Tech companies?')">How can I improve my resume?</button>
+            <button class="suggestion-chip" onclick="fillQuery('Prepare me for a Java SDE interview: multithreading & JVM')">Prepare me for a Java interview</button>
+            <button class="suggestion-chip" onclick="fillQuery('What high-impact skills should freshers learn for 2025 backend roles?')">What skills should I learn?</button>
+            <button class="suggestion-chip" onclick="fillQuery('Goldman Sachs OA pattern and aptitude question weightage')">Goldman Sachs OA pattern</button>
+          </div>
+        </div>
+
+        <div id="ai-response-container" class="mt-8 pt-6 border-t border-white/10 space-y-5">
+          <!-- Default static content (from export) -->
+          <div class="flex flex-wrap items-center justify-between gap-3 bg-white/5 p-3.5 rounded-xl border border-white/5">
+            <div class="flex items-center gap-2.5">
+              <div class="w-7 h-7 rounded-lg bg-brand-electric/20 border border-brand-electric/40 flex items-center justify-center text-cyan-400">
+                <span class="material-symbols-outlined text-[18px]">verified</span>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-white font-display">Target: Amazon SDE-1 &amp; Google L3 Interview Calibration</p>
+                <p class="text-[11px] text-slate-400 font-mono">Calibrated across 1,240 campus rounds in 2024–2025</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="text-xs text-slate-300 hover:text-white bg-navy-900 border border-white/10 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors" onclick="copyAIData()"><span class="material-symbols-outlined text-[16px]">content_copy</span><span id="copy-btn-txt">Copy to Notes</span></button>
+              <button class="text-xs text-slate-300 hover:text-white bg-navy-900 border border-white/10 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">quiz</span><span>Generate Mock Quiz</span></button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-navy-950/70 border border-white/5 space-y-3">
+              <div class="flex items-center gap-2 text-cyan-400"><span class="material-symbols-outlined text-[18px]">target</span><h4 class="text-xs font-bold font-mono uppercase tracking-wider">High Probability Areas</h4></div>
+              <ul class="text-xs text-slate-300 space-y-2">
+                <li class="flex items-start gap-2"><span class="text-cyan-400 font-bold">•</span><span><strong>Graphs:</strong> Dijkstra, Topological Sort, Disjoint Set Union (DSU).</span></li>
+                <li class="flex items-start gap-2"><span class="text-cyan-400 font-bold">•</span><span><strong>DP:</strong> Longest Common Subsequence &amp; Knapsack variations.</span></li>
+                <li class="flex items-start gap-2"><span class="text-cyan-400 font-bold">•</span><span><strong>OS &amp; Concurrency:</strong> Mutex locks, deadlock detection, thread pools.</span></li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-navy-950/70 border border-white/5 space-y-3">
+              <div class="flex items-center gap-2 text-purple-400"><span class="material-symbols-outlined text-[18px]">psychology_alt</span><h4 class="text-xs font-bold font-mono uppercase tracking-wider">Behavioral STAR Framework</h4></div>
+              <div class="text-xs text-slate-300 space-y-1.5"><p class="font-medium text-white">Amazon Leadership Principle: <em>Deliver Results &amp; Customer Obsession</em></p>
+                <p class="text-slate-400 leading-relaxed text-[11px]">"Situation: Capstone latency exceeded 800ms. Task: Reduce response to &lt;200ms. Action: Implemented Redis caching + optimized indexed queries. Result: Achieved 140ms latency (82% reduction)."</p>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-navy-950/70 border border-white/5 space-y-3">
+              <div class="flex items-center gap-2 text-emerald-400"><span class="material-symbols-outlined text-[18px]">insights</span><h4 class="text-xs font-bold font-mono uppercase tracking-wider">Recruiter Cutoff Stats</h4></div>
+              <div class="space-y-2 text-xs">
+                <div class="flex justify-between"><span class="text-slate-400">OA Problem Cutoff:</span><span class="text-white font-mono font-semibold">2 of 2 full test cases</span></div>
+                <div class="flex justify-between"><span class="text-slate-400">Time Limit:</span><span class="text-white font-mono font-semibold">70 mins</span></div>
+                <div class="flex justify-between"><span class="text-slate-400">Code Quality Weight:</span><span class="text-emerald-400 font-mono font-semibold">30% of total score</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME ANALYZER (upload area with validation & scan) -->
+    <section class="space-y-6" id="resume-analyzer">
+      <div class="flex items-center justify-between pb-2 border-b border-white/10">
+        <div>
+          <div class="flex items-center gap-2 text-cyan-400 text-xs font-mono uppercase tracking-wider font-semibold">
+            <span class="material-symbols-outlined text-[16px]">fact_check</span>
+            <span>Intelligent ATS Parser &amp; Benchmark Engine</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1">Resume Competency &amp; ATS Audit</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Scanned against Workday, Greenhouse &amp; Tier-1 Tech Recruiter Filters.</p>
+        </div>
+        <div class="hidden sm:flex items-center gap-2"><span class="text-xs text-slate-400 font-mono">Last scanned: 14 mins ago</span></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-5 glass-card rounded-2xl p-6 glow-border flex flex-col justify-between space-y-6">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold font-display uppercase tracking-wider text-slate-200">Candidate File</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Ready for Screening</span>
+            </div>
+
+            <form id="resume-upload-form" class="relative rounded-xl border-2 border-dashed border-brand-electric/40 bg-navy-950/60 p-6 text-center hover:border-cyan-400 transition-colors cursor-pointer group" enctype="multipart/form-data" onsubmit="return false;">
+
+              <div class="w-12 h-12 rounded-xl bg-brand-electric/15 border border-brand-electric/30 text-cyan-400 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-[28px]">picture_as_pdf</span>
+              </div>
+
+              <h4 id="upload-filename" class="text-sm font-bold text-white font-display">No file uploaded</h4>
+              <p id="upload-meta" class="text-[11px] text-slate-400 mt-0.5 font-mono">Maximum 2 MB · PDF only</p>
+
+              <input id="resume-file-input" name="resume" type="file" accept="application/pdf" class="hidden" />
+
+              <div class="mt-4 flex items-center justify-center gap-2">
+                <button id="btn-upload-trigger" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-200 transition-all" type="button">Choose PDF</button>
+                <button id="btn-remove-file" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-400 hover:text-red-400 transition-all" type="button" disabled>Remove</button>
+              </div>
+
+              <div id="upload-error" class="mt-3 text-xs text-amber-400 hidden"></div>
+
+            </form>
+
+            <div class="mt-6 space-y-2.5">
+              <span class="text-xs font-semibold text-slate-300 font-display block">Parser Verification Checks</span>
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-navy-950/80 border border-white/5 text-xs"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-400 text-[18px]">check_circle</span><span class="text-slate-300">ATS Text Extractability</span></div><span id="parse-status" class="text-emerald-400 font-mono font-semibold">—</span></div>
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-navy-950/80 border border-white/5 text-xs"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-400 text-[18px]">check_circle</span><span class="text-slate-300">Single Column Layout</span></div><span class="text-emerald-400 font-mono font-semibold">Optimal</span></div>
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-navy-950/80 border border-white/5 text-xs"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-400 text-[18px]">check_circle</span><span class="text-slate-300">Word Count Density</span></div><span class="text-cyan-400 font-mono font-semibold">—</span></div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10">
+            <button id="reanalyze-btn" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-electric to-blue-600 hover:from-blue-600 hover:to-indigo-600 text-white font-display font-semibold text-xs flex items-center justify-center gap-2 shadow-lg shadow-brand-electric/25 transition-all"> <span class="material-symbols-outlined text-[18px]">sync</span><span>Scan &amp; Analyze Resume</span></button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-7 glow-border space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-gradient-to-r from-navy-950/90 to-brand-electric/10 border border-white/10">
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 rounded-xl bg-navy-900 border border-cyan-400/40 flex flex-col items-center justify-center text-center shadow-lg"><span id="score-number" class="text-2xl font-extrabold font-display text-white">—</span><span class="text-[10px] text-slate-400 font-mono leading-none">/ 100</span></div>
+              <div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Grade Pending</span>
+                <h3 id="score-heading" class="text-base font-bold font-display text-white mt-1">Upload to analyze</h3>
+                <p class="text-xs text-slate-400">Validated for Microsoft, Google, Atlassian &amp; Goldman Sachs drives.</p>
+              </div>
+            </div>
+            <button id="export-audit" class="px-3.5 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-cyan-300 flex items-center gap-1.5 self-start sm:self-center transition-all"> <span class="material-symbols-outlined text-[16px]">download</span> Export Audit</button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-navy-950/70 border border-emerald-500/20 space-y-2.5">
+              <div class="flex items-center gap-1.5 text-emerald-400"><span class="material-symbols-outlined text-[18px]">verified</span><h4 class="text-xs font-bold font-mono uppercase">Detected Strengths</h4></div>
+              <ul class="text-xs text-slate-300 space-y-2"><li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">✓</span><span id="strengths-list">No data</span></li></ul>
+            </div>
+            <div class="p-4 rounded-xl bg-navy-950/70 border border-amber-500/20 space-y-2.5">
+              <div class="flex items-center gap-1.5 text-amber-400"><span class="material-symbols-outlined text-[18px]">warning</span><h4 class="text-xs font-bold font-mono uppercase">Missing Role Keywords</h4></div>
+              <ul class="text-xs text-slate-300 space-y-2"><li class="flex items-start gap-1.5"><span class="text-amber-400 font-bold">!</span><span id="gaps-list">No data</span></li></ul>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-brand-electric/5 border border-brand-electric/20 space-y-3">
+            <div class="flex items-center justify-between"><span class="text-xs font-bold font-display text-white flex items-center gap-1.5"><span class="material-symbols-outlined text-cyan-400 text-[18px]">bolt</span><span>AI Recommended Action (+6 Score Potential)</span></span><span class="text-[10px] font-mono text-cyan-400">Instant Fix</span></div>
+            <div class="space-y-2">
+              <div class="p-2.5 rounded-lg bg-navy-950/80 border border-white/5 flex items-center justify-between gap-3 text-xs"><span class="text-slate-300">Replace passive verb: "Helped build backend APIs" ➔ <strong>"Architected &amp; deployed 12 RESTful microservices"</strong></span><button class="auto-fix-btn px-2.5 py-1 rounded bg-brand-electric text-white text-[11px] font-semibold hover:bg-blue-600 transition-colors">Auto-Fix</button></div>
+              <div class="p-2.5 rounded-lg bg-navy-950/80 border border-white/5 flex items-center justify-between gap-3 text-xs"><span class="text-slate-300">Add live production demo deployment link to Capstone Distributed Chat Project</span><button class="auto-fix-btn px-2.5 py-1 rounded bg-white/10 hover:bg-white/15 text-slate-200 text-[11px] font-semibold transition-colors">Apply</button></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PREP HUB (kept layout) -->
+    <section class="space-y-6" id="prep-hub">
+      <div class="flex items-center justify-between pb-2 border-b border-white/10">
+        <div>
+          <div class="flex items-center gap-2 text-cyan-400 text-xs font-mono uppercase tracking-wider font-semibold"><span class="material-symbols-outlined text-[16px]">school</span><span>Comprehensive Curriculum</span></div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1">Placement Preparation Hub</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Six hyper-specialized modules crafted to crack each round of Tier-1 campus hiring.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass-card rounded-2xl p-6 glow-border glass-card-hover transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4"><div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-400 flex items-center justify-center group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-[26px]">video_camera_front</span></div><span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/30 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span><span>Live Cam AI Avatar</span></span></div>
+            <h3 class="text-lg font-bold font-display text-white">AI Mock Interview Simulator</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">Adaptive real-time interview engine assessing eye contact, articulation pacing, STAR response structure, and technical depth.</p>
+            <div class="mt-4 flex flex-wrap gap-1.5"><span class="tag">STAR Evaluator</span><span class="tag">Real-time Feedback</span><span class="tag tag-purple">Confidence Score</span></div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between"><span class="text-xs text-slate-400 font-mono">Difficulty: High</span><button class="text-xs font-semibold text-purple-400 hover:text-purple-300 flex items-center gap-1">Launch Session <span class="material-symbols-outlined text-[16px]">arrow_forward</span></button></div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 glass-card-hover transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4"><div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-[26px]">terminal</span></div><span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">350+ Solved</span></div>
+            <h3 class="text-lg font-bold font-display text-white">Coding Practice &amp; OA Drills</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">Curated company-wise tracks (Amazon 50, Google 75) with runtime complexity telemetry and hidden edge-case testing.</p>
+            <div class="mt-4 flex flex-wrap gap-1.5"><span class="tag">DP &amp; Graphs</span><span class="tag">OA Speedrun</span><span class="tag tag-cyan">C++ / Java / Python</span></div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between"><span class="text-xs text-slate-400 font-mono">Daily Target: 2/3</span><button class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1">Open Code Arena <span class="material-symbols-outlined text-[16px]">arrow_forward</span></button></div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 glass-card-hover transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4"><div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center group-hover:scale-110 transition-transform"><span class="material-symbols-outlined text-[26px]">calculate</span></div><span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">Speed Math</span></div>
+            <h3 class="text-lg font-bold font-display text-white">Aptitude &amp; Reasoning Bank</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">Targeted drills for Goldman Sachs, TCS Digital &amp; Capgemini aptitude elimination rounds with shortcut methodologies.</p>
+            <div class="mt-4 flex flex-wrap gap-1.5"><span class="tag">Quantitative</span><span class="tag">Data Interpretation</span><span class="tag tag-amber">60s Timer</span></div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between"><span class="text-xs text-slate-400 font-mono">Accuracy: 88%</span><button class="text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1">Start Speed Quiz <span class="material-symbols-outlined text-[16px]">arrow_forward</span></button></div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (condensed) -->
+  <footer class="w-full bg-navy-950 border-t border-white/10 py-12 mt-auto relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-white/10">
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg overflow-hidden p-0.5 bg-gradient-to-tr from-brand-electric to-brand-cyan"><img alt="Logo" class="w-full h-full object-cover rounded-md" src="https://lh3.googleusercontent.com/aida/AEtjO1ULTyFmLpx9DrCZxYULpSEN1-hM_Y6HNbOVmRcu5ZOBG-uZoGQtdiBhN5HHzfUo17asFC0PtXDZ-I_yzdSRMlOUyNJRaz0fq1ZEJQvtPC96fWx6agvv-VQ7qQ-ImQoKkgDeeCGZfzu5h0HxnEG5fMJcHwok0pgGbjeZ0mfHFlf8-rOsCR0UIbkvx5p3rWvFiQ0ZxxBcfq0HZAU5bcLVY3X499643PuAPlUfZuI3Eq8XvrLdsUL5K37CPkmR" /></div><span class="font-display font-bold text-white text-base">Campus Placement AI</span></div>
+          <p class="text-xs text-slate-400 max-w-sm leading-relaxed">Standardized artificial intelligence career co-pilot deployed across Engineering, MCA, and Management university placement faculties.</p>
+          <p class="text-[11px] text-cyan-400 font-mono">Accredited by Central Placement Cell (CPC) • University Drive Season 2024–2025</p>
+        </div>
+
+        <div class="space-y-2"><span class="text-xs font-bold text-white font-mono uppercase tracking-wider block mb-2">Student Toolkits</span><ul class="text-xs text-slate-400 space-y-1.5"><li><a class="hover:text-cyan-400 transition-colors" href="#resume-analyzer">ATS Resume Checker</a></li><li><a class="hover:text-cyan-400 transition-colors" href="#prep-hub">STAR Framework Drills</a></li><li><a class="hover:text-cyan-400 transition-colors" href="#career-roadmap">Day-1 Drive Calendar</a></li><li><a class="hover:text-cyan-400 transition-colors" href="#ai-assistant">Salary Benchmark Matrix</a></li></ul></div>
+
+        <div class="space-y-2"><span class="text-xs font-bold text-white font-mono uppercase tracking-wider block mb-2">Governance &amp; Support</span><ul class="text-xs text-slate-400 space-y-1.5"><li><a class="hover:text-cyan-400 transition-colors" href="#">Placement Code of Conduct</a></li><li><a class="hover:text-cyan-400 transition-colors" href="#">AI Bias &amp; Fairness Policy</a></li><li><a class="hover:text-cyan-400 transition-colors" href="#">Student Privacy Safeguards</a></li><li><a class="hover:text-cyan-400 transition-colors" href="#">Placement Cell Helpdesk</a></li></ul></div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
+        <p>© 2025 Campus Placement AI. All rights reserved across partner institutions.</p>
+        <div class="flex items-center gap-4"><span>Security: SOC2 &amp; FERPA Aligned</span><span>•</span><span class="text-emerald-400">All Systems Operational</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

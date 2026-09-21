@@ -1,0 +1,43 @@
+ISSUE_NUMBER: 8
+
+ISSUE_TITLE: Build Backend API
+
+REQUIREMENTS:
+- Set up Python FastAPI backend
+- Create required API endpoints
+- Connect backend with Microsoft Foundry
+- Add API endpoint for student queries
+- Add resume upload and processing endpoint
+- Connect backend with the multi-agent system
+- Add input validation
+- Add exception and error handling
+- Configure CORS for frontend-backend communication
+- Test backend APIs
+- Send completed backend work to Bug/Issue Agent for verification
+
+IMPLEMENTATION_PLAN:
+- Create a new backend package (e.g., app/) with a FastAPI application and requirements (fastapi, uvicorn, python-multipart, pydantic, aiofiles, CORS middleware).
+- Implement project layout and startup: main.py to mount routers, configure logging, environment-based configuration, and secure reading of environment variables.
+- Implement core endpoints:
+  - Health-check GET /health
+  - Student query POST /api/query (accept JSON, validate with Pydantic)
+  - Resume upload POST /api/resume (accept multipart/form-data file; store temporarily and return processing result)
+  - Additional endpoints as needed (e.g., /api/status, /api/results)
+- Add input validation using Pydantic models for request bodies and file-type checks for uploads.
+- Add exception handling: global exception handlers for HTTPException, RequestValidationError, and generic exceptions; return consistent JSON error responses and proper status codes.
+- Configure CORS middleware to allow the frontend origin(s) (read allowed origins from environment variables) and enable required methods/headers.
+- Implement integration points with Microsoft Foundry and the multi-agent system:
+  - Add a Foundry client module with configuration to call or authenticate with Foundry (keep credentials out of source via env vars).
+  - For student queries and resume processing, implement asynchronous calls to Foundry agents/services (stubbed interface if credentials unavailable) and clear interfaces so Backend Agent can be wired to the multi-agent system later.
+- Add tests:
+  - Unit tests for validation and error handling.
+  - Integration tests for endpoints using TestClient (FastAPI) and mock Foundry interactions.
+  - Manual test plan (curl/postman) to exercise endpoints and CORS behavior.
+- Prepare verification package for Bug/Issue Agent:
+  - Documentation (README/backend.md) describing endpoints, expected inputs/outputs, env vars required, and test steps.
+  - Provide sample requests and sample resume test file.
+- Deliverables:
+  - Working FastAPI app that passes tests locally.
+  - Clear instructions and artifacts for Bug/Issue Agent to verify each checklist item.
+
+ROUTE: BACKEND

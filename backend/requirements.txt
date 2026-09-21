@@ -1,0 +1,12 @@
+fastapi==0.141.1
+uvicorn==0.53.0
+python-dotenv==1.2.3
+python-multipart==0.0.32
+azure-identity==1.26.0b2
+azure-ai-projects==2.6.1
+agent-framework==1.19.0
+agent-framework-core==1.19.0
+agent-framework-foundry==1.13.1
+agent-framework-orchestrations==1.2.0
+pytest
+httpx

@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Campus Placement AI — University Career Intelligence</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            midnight: "#060913",
+            "navy-950": "#0a0f1d",
+            "navy-900": "#0f172a",
+            "navy-800": "#1e293b",
+            "navy-700": "#334155",
+            brand: {
+              electric: "#2563eb",
+              cyan: "#06b6d4",
+              purple: "#8b5cf6",
+              indigo: "#6366f1",
+              emerald: "#10b981",
+              amber: "#f59e0b"
+            }
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          backgroundImage: {
+            'radial-glow': 'radial-gradient(circle at 50% 0%, rgba(37,99,235,0.18) 0%, rgba(6,182,212,0.08) 40%, transparent 70%)',
+            'radial-purple': 'radial-gradient(circle at 80% 20%, rgba(139,92,246,0.15) 0%, transparent 60%)',
+            'grid-pattern': 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)'
+          },
+          animation: {
+            'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'scanline': 'scan 4s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      background-color: #060913;
+      color: #f1f5f9;
+      overscroll-behavior: none;
+    }
+    .glass-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(10, 15, 29, 0.85) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(37, 99, 235, 0.4);
+      box-shadow: 0 10px 35px -10px rgba(37, 99, 235, 0.25);
+    }
+    .glow-border {
+      position: relative;
+    }
+    .glow-border::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.6), rgba(6, 182, 212, 0.4), rgba(139, 92, 246, 0.2));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .text-glow {
+      text-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+    }
+    /* Hide scrollbars for aesthetic clean view */
+    ::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class="bg-midnight text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-electric selection:text-white">
+<!-- Ambient background glow & grid -->
+<div class="fixed inset-0 bg-radial-glow pointer-events-none z-0"></div>
+<div class="fixed inset-0 bg-radial-purple pointer-events-none z-0"></div>
+<div class="fixed inset-0 bg-[size:48px_48px] bg-grid-pattern pointer-events-none z-0 opacity-40"></div>
+<!-- 1. PRESTIGIOUS NAVBAR -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-navy-950/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+<!-- Logo & Brand identity -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-10 h-10 rounded-xl overflow-hidden p-0.5 bg-gradient-to-tr from-brand-electric via-brand-cyan to-brand-purple shadow-[0_0_20px_rgba(37,99,235,0.4)] group-hover:scale-105 transition-transform">
+<img alt="Campus Placement AI Logo" class="w-full h-full object-cover rounded-[10px]" src="https://lh3.googleusercontent.com/aida/AEtjO1ULTyFmLpx9DrCZxYULpSEN1-hM_Y6HNbOVmRcu5ZOBG-uZoGQtdiBhN5HHzfUo17asFC0PtXDZ-I_yzdSRMlOUyNJRaz0fq1ZEJQvtPC96fWx6agvv-VQ7qQ-ImQoKkgDeeCGZfzu5h0HxnEG5fMJcHwok0pgGbjeZ0mfHFlf8-rOsCR0UIbkvx5p3rWvFiQ0ZxxBcfq0HZAU5bcLVY3X499643PuAPlUfZuI3Eq8XvrLdsUL5K37CPkmR"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-display font-extrabold text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">Campus Placement AI</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-brand-electric/15 text-blue-400 border border-brand-electric/30 shadow-[0_0_10px_rgba(37,99,235,0.2)]">
+                2025 Edition
+              </span>
+</div>
+<p class="text-[11px] text-slate-400 font-medium">University Career Intelligence Platform</p>
+</div>
+</a>
+</div>
+<!-- Main Navigation -->
+<nav class="hidden md:flex items-center gap-1 bg-navy-900/70 p-1.5 rounded-full border border-white/5 text-sm font-medium">
+<a class="px-4 py-1.5 rounded-full bg-brand-electric text-white shadow-md shadow-brand-electric/25 transition-all" href="#command-center">Dashboard</a>
+<a class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-all" href="#resume-analyzer">Resume AI</a>
+<a class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5" href="#ai-assistant">
+<span>AI Assistant</span>
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+</a>
+<a class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-all" href="#prep-hub">Practice</a>
+<a class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/5 transition-all" href="#career-roadmap">Roadmap</a>
+</nav>
+<!-- Right Action / Status & Student Avatar -->
+<div class="flex items-center gap-3">
+<!-- Live Season Pill -->
+<div class="hidden lg:flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1.5 rounded-full">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+<span class="text-xs font-semibold text-emerald-400 tracking-wide uppercase font-mono">Drives Active</span>
+</div>
+<!-- Notification Bell -->
+<button aria-label="Notifications" class="relative p-2.5 rounded-xl bg-navy-900/80 hover:bg-navy-800 border border-white/10 text-slate-300 hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-cyan-400 ring-2 ring-navy-950"></span>
+</button>
+<!-- Student Profile Pill -->
+<div class="flex items-center gap-2.5 bg-navy-900/90 hover:bg-navy-800/90 border border-white/10 rounded-full pl-2 pr-3.5 py-1.5 transition-all cursor-pointer group">
+<div class="w-7 h-7 rounded-full bg-gradient-to-tr from-brand-electric to-brand-cyan flex items-center justify-center font-display font-bold text-xs text-white shadow-sm">
+            AS
+          </div>
+<div class="hidden sm:block text-left">
+<p class="text-xs font-semibold text-slate-200 group-hover:text-white leading-tight">Arjun Sharma</p>
+<p class="text-[10px] text-slate-400 leading-tight">B.Tech CSE '25</p>
+</div>
+<span class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN WRAPPER -->
+<main class="relative z-10 pt-28 pb-20 flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+<!-- 2. HERO SECTION -->
+<section class="relative pt-6 pb-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Hero Left Column: Copy & CTAs -->
+<div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+<!-- Tagline Pill -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-electric/10 border border-brand-electric/30 text-cyan-300 text-xs font-medium backdrop-blur-md">
+<span class="material-symbols-outlined text-[16px] text-cyan-400">psychology</span>
+<span>Next-Gen University Placement Intelligence • Powered by GPT-4o</span>
+</div>
+<!-- Main Title with Gradient -->
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight leading-[1.1] text-white">
+            Your AI Career <br/>
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 text-glow">
+              Co-Pilot
+            </span>
+</h1>
+<!-- Subheading -->
+<p class="text-base sm:text-lg text-slate-300 font-normal max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            From Resume to Recruitment — Prepare Smarter with AI. Real-time ATS auditing, algorithmic interview simulations, and company-specific hire probability benchmarking.
+          </p>
+<!-- Dual CTAs -->
+<div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+<a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-display font-semibold text-sm text-white bg-gradient-to-r from-brand-electric via-blue-600 to-brand-indigo hover:from-blue-600 hover:to-indigo-700 shadow-[0_0_25px_rgba(37,99,235,0.45)] hover:shadow-[0_0_35px_rgba(37,99,235,0.6)] transform hover:-translate-y-0.5 transition-all" href="#prep-hub">
+<span>Start Preparing</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-display font-semibold text-sm text-slate-200 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-cyan-400/40 backdrop-blur-md transition-all" href="#resume-analyzer">
+<span class="material-symbols-outlined text-[18px] text-cyan-400">upload_file</span>
+<span>Analyze Resume</span>
+</a>
+</div>
+<!-- Quick Trust indicator -->
+<div class="pt-2 flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-400">
+<div class="flex -space-x-2">
+<div class="w-7 h-7 rounded-full bg-slate-800 border-2 border-navy-950 flex items-center justify-center text-[10px] font-bold text-white">G</div>
+<div class="w-7 h-7 rounded-full bg-blue-700 border-2 border-navy-950 flex items-center justify-center text-[10px] font-bold text-white">MS</div>
+<div class="w-7 h-7 rounded-full bg-amber-600 border-2 border-navy-950 flex items-center justify-center text-[10px] font-bold text-white">AMZ</div>
+<div class="w-7 h-7 rounded-full bg-emerald-600 border-2 border-navy-950 flex items-center justify-center text-[10px] font-bold text-white">+80</div>
+</div>
+<span>Calibrated against Tier-1 SDE Hiring Bars</span>
+</div>
+</div>
+<!-- Hero Right Column: Embedded Visual Asset & Glass Framing -->
+<div class="lg:col-span-6 relative">
+<!-- Glassmorphic Hologram Frame Showcase -->
+<div class="relative rounded-2xl p-2 glow-border glass-card shadow-2xl overflow-hidden group">
+<div class="relative rounded-xl overflow-hidden aspect-video bg-navy-950/80">
+<img alt="Futuristic AI Career Hologram" class="w-full h-full object-cover transform group-hover:scale-102 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHLTimFREEu9TiZsMpNlv1IJyaN7jUIw9Fecy9o6SK-lqD15JH1U9alAy-7jCIqxUjOkE4lihphx8l9h_LXukxnK6sEoewWNNlFrjDMM6GeaLe2On8ZS1GAKqDZKxb9ZSqf7As9telK5JIFl4b4a5Tz_uxuROC7Ic3aHxlkSbhlOihH265yctnm2zByzdOtOSFv6sIHzZVBBsfQDhIs5lem3ufac_3pRMzO_WCkp47t422GwhN_SStAg"/>
+<!-- Ambient overlay gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-60"></div>
+<!-- Floating Pill KPI 1 -->
+<div class="absolute top-4 left-4 bg-navy-950/90 backdrop-blur-md border border-cyan-400/30 rounded-xl px-3 py-2 shadow-lg flex items-center gap-2.5 animate-float">
+<div class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></div>
+<div>
+<p class="text-[10px] text-slate-400 uppercase font-mono tracking-wider font-semibold">AI Prediction</p>
+<p class="text-xs font-display font-bold text-cyan-300">94.2% Placement Match</p>
+</div>
+</div>
+<!-- Floating Pill KPI 2 -->
+<div class="absolute bottom-4 right-4 bg-navy-950/90 backdrop-blur-md border border-brand-purple/40 rounded-xl px-3.5 py-2 shadow-lg flex items-center gap-2.5">
+<span class="material-symbols-outlined text-brand-purple text-[20px]">stars</span>
+<div>
+<p class="text-[10px] text-slate-400 font-mono">Top Recruiter Alignment</p>
+<p class="text-xs font-display font-bold text-white">Google &amp; Microsoft SDE-1</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Placement Statistics Ribbon -->
+<div class="mt-12 glass-card rounded-2xl p-6 border border-white/10 shadow-lg">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-white/10">
+<div class="flex flex-col items-center justify-center text-center px-4">
+<div class="flex items-baseline gap-2">
+<span class="text-3xl lg:text-4xl font-extrabold font-display text-white tracking-tight">92%</span>
+<span class="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">+14% YoY</span>
+</div>
+<span class="text-xs text-slate-400 mt-1 font-medium">Offer Success Rate</span>
+</div>
+<div class="flex flex-col items-center justify-center text-center px-4 pt-4 md:pt-0">
+<span class="text-3xl lg:text-4xl font-extrabold font-display text-cyan-300 tracking-tight">18,400+</span>
+<span class="text-xs text-slate-400 mt-1 font-medium">Resumes Benchmarked</span>
+</div>
+<div class="flex flex-col items-center justify-center text-center px-4 pt-4 md:pt-0">
+<div class="flex items-baseline gap-2">
+<span class="text-3xl lg:text-4xl font-extrabold font-display text-white tracking-tight">140+</span>
+<span class="text-xs font-semibold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">Tier 1 &amp; 2</span>
+</div>
+<span class="text-xs text-slate-400 mt-1 font-medium">Partner Recruiters</span>
+</div>
+<div class="flex flex-col items-center justify-center text-center px-4 pt-4 md:pt-0">
+<div class="flex items-baseline gap-1">
+<span class="text-3xl lg:text-4xl font-extrabold font-display text-emerald-400 tracking-tight">14.8</span>
+<span class="text-lg font-bold text-slate-300">LPA</span>
+</div>
+<span class="text-xs text-slate-400 mt-1 font-medium">Average SDE Package</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. STUDENT COMMAND CENTER (EXECUTIVE DASHBOARD) -->
+<section class="space-y-6" id="command-center">
+<!-- Section Header & Greeting -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b border-white/10">
+<div>
+<div class="flex items-center gap-2 text-cyan-400 text-xs font-mono uppercase tracking-wider font-semibold">
+<span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+<span>Executive Command Center</span>
+</div>
+<h2 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1">
+            Welcome back, Arjun 👋
+          </h2>
+<p class="text-xs sm:text-sm text-slate-400 mt-0.5">B.Tech Computer Science &amp; Engineering • University Batch of 2025</p>
+</div>
+<!-- Timeline Countdown Pill -->
+<div class="inline-flex items-center gap-3 bg-navy-900 border border-brand-electric/30 px-4 py-2 rounded-xl text-xs">
+<span class="material-symbols-outlined text-brand-electric text-[20px]">event_available</span>
+<div>
+<span class="text-slate-400 block text-[10px] uppercase font-mono">University Drive Window</span>
+<span class="font-bold text-slate-100">Day-1 Marquee Drives start in <span class="text-cyan-400 font-mono">18 Days</span></span>
+</div>
+</div>
+</div>
+<!-- Command Metric Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5">
+<!-- Card 1: Placement Readiness Circular Gauge (4 cols) -->
+<div class="lg:col-span-4 glass-card rounded-2xl p-6 glow-border flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<h3 class="font-display font-semibold text-white text-sm">Overall Readiness Index</h3>
+<span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+              Top 8th Percentile
+            </span>
+</div>
+<div class="my-6 flex items-center justify-center">
+<!-- Circular Progress SVG -->
+<div class="relative w-40 h-40 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 120 120">
+<circle class="text-slate-800" cx="60" cy="60" fill="transparent" r="50" stroke="currentColor" stroke-width="8"></circle>
+<circle cx="60" cy="60" fill="transparent" r="50" stroke="url(#electricGrad)" stroke-dasharray="314.159" stroke-dashoffset="44" stroke-linecap="round" stroke-width="8"></circle>
+<defs>
+<lineargradient id="electricGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#06b6d4"></stop>
+<stop offset="100%" stop-color="#2563eb"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="text-4xl font-extrabold font-display text-white">86%</span>
+<span class="text-[11px] text-slate-400 font-mono uppercase tracking-wider">Placement Ready</span>
+</div>
+</div>
+</div>
+<!-- Breakdown pills -->
+<div class="grid grid-cols-3 gap-2 pt-2 border-t border-white/10 text-center">
+<div class="bg-white/5 p-2 rounded-lg">
+<span class="text-[10px] text-slate-400 block font-mono">Aptitude</span>
+<span class="text-xs font-bold text-white font-mono">88%</span>
+</div>
+<div class="bg-white/5 p-2 rounded-lg">
+<span class="text-[10px] text-slate-400 block font-mono">Technical</span>
+<span class="text-xs font-bold text-cyan-300 font-mono">84%</span>
+</div>
+<div class="bg-white/5 p-2 rounded-lg">
+<span class="text-[10px] text-slate-400 block font-mono">Behavioral</span>
+<span class="text-xs font-bold text-emerald-400 font-mono">89%</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Resume Score (4 cols) -->
+<div class="lg:col-span-4 glass-card rounded-2xl p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-400 text-[20px]">description</span>
+<h3 class="font-display font-semibold text-white text-sm">Resume ATS Health</h3>
+</div>
+<span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">
+                Tier-1 Calibrated
+              </span>
+</div>
+<div class="mt-5 flex items-baseline gap-2">
+<span class="text-4xl font-extrabold font-display text-white">88</span>
+<span class="text-slate-400 text-sm font-mono">/ 100</span>
+<span class="ml-auto text-xs text-emerald-400 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">trending_up</span> +14 pts from v1
+              </span>
+</div>
+<div class="mt-4 space-y-2.5">
+<div class="flex justify-between text-xs">
+<span class="text-slate-400">ATS Parsing Verification</span>
+<span class="text-emerald-400 font-mono font-medium">100% Valid</span>
+</div>
+<div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full rounded-full" style="width: 88%"></div>
+</div>
+<div class="flex justify-between text-[11px] text-slate-400">
+<span>Workday ATS Score: 91%</span>
+<span>Greenhouse: 86%</span>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+<span class="text-xs text-slate-400">1 Missing High-yield Keyword</span>
+<a class="text-xs text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1" href="#resume-analyzer">
+<span>View Audit</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Interview Readiness (4 cols) -->
+<div class="lg:col-span-4 glass-card rounded-2xl p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-purple-400 text-[20px]">videocam</span>
+<h3 class="font-display font-semibold text-white text-sm">Interview Simulator</h3>
+</div>
+<span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30">
+                AI Proctored
+              </span>
+</div>
+<div class="mt-5 flex items-baseline gap-2">
+<span class="text-4xl font-extrabold font-display text-white">78%</span>
+<span class="text-slate-400 text-sm font-mono">Confidence</span>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+<div class="p-3 bg-white/5 rounded-xl border border-white/5">
+<span class="text-slate-400 block text-[11px]">Completed Mocks</span>
+<span class="text-lg font-bold text-white font-mono mt-0.5 block">4 Sessions</span>
+</div>
+<div class="p-3 bg-white/5 rounded-xl border border-white/5">
+<span class="text-slate-400 block text-[11px]">Upcoming Mock</span>
+<span class="text-xs font-bold text-cyan-400 font-mono mt-1 block truncate">SDE-1 Google</span>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+<span class="text-xs text-slate-400">Tone &amp; STAR Clarity: 8.4/10</span>
+<button class="text-xs text-brand-purple hover:text-purple-300 font-semibold flex items-center gap-1" onclick="startMockSim()">
+<span>Launch Mock</span>
+<span class="material-symbols-outlined text-[14px]">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Skills Breakdown Progress (7 cols) -->
+<div class="lg:col-span-7 glass-card rounded-2xl p-6">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-cyan-400 text-[20px]">code_blocks</span>
+<h3 class="font-display font-semibold text-white text-sm">Technical Mastery Breakdown</h3>
+</div>
+<span class="text-xs text-slate-400 font-mono">Campus Benchmark: Tier-1 Cohort</span>
+</div>
+<div class="space-y-4">
+<!-- DSA -->
+<div>
+<div class="flex justify-between text-xs mb-1 font-medium">
+<span class="text-slate-200">Data Structures &amp; Algorithms (Graphs, DP, Trees)</span>
+<span class="text-cyan-400 font-mono">85% • Proficient</span>
+</div>
+<div class="w-full bg-slate-800/80 h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<!-- Core CS -->
+<div>
+<div class="flex justify-between text-xs mb-1 font-medium">
+<span class="text-slate-200">Core CS Fundamentals (OS, DBMS, Networks, OOP)</span>
+<span class="text-emerald-400 font-mono">90% • Advanced</span>
+</div>
+<div class="w-full bg-slate-800/80 h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<!-- System Design -->
+<div>
+<div class="flex justify-between text-xs mb-1 font-medium">
+<span class="text-slate-200">Low-Level &amp; High-Level System Design</span>
+<span class="text-indigo-400 font-mono">70% • Needs Work</span>
+</div>
+<div class="w-full bg-slate-800/80 h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-purple-500 to-indigo-500 h-full rounded-full" style="width: 70%"></div>
+</div>
+</div>
+<!-- Cloud / DevOps -->
+<div>
+<div class="flex justify-between text-xs mb-1 font-medium">
+<span class="text-slate-200">Cloud &amp; Microservices (Docker, AWS Fundamentals)</span>
+<span class="text-amber-400 font-mono">60% • Action Required</span>
+</div>
+<div class="w-full bg-slate-800/80 h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-full rounded-full" style="width: 60%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 5: Upcoming Placement Activity Feed (5 cols) -->
+<div class="lg:col-span-5 glass-card rounded-2xl p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-400 text-[20px]">notifications_active</span>
+<h3 class="font-display font-semibold text-white text-sm">Placement Activity Feed</h3>
+</div>
+<span class="text-[11px] font-mono text-cyan-400">Live Sync</span>
+</div>
+<div class="space-y-3 mt-4">
+<!-- Item 1 -->
+<div class="p-3 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3">
+<div class="w-2 h-2 rounded-full bg-amber-400 mt-1.5 flex-shrink-0"></div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-semibold text-white truncate">Goldman Sachs Pre-Placement Talk</p>
+<p class="text-[11px] text-slate-400">Tomorrow • 10:00 AM • Main Auditorium &amp; Zoom</p>
+</div>
+<span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300">Mandatory</span>
+</div>
+<!-- Item 2 -->
+<div class="p-3 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3">
+<div class="w-2 h-2 rounded-full bg-blue-400 mt-1.5 flex-shrink-0"></div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-semibold text-white truncate">Amazon OA Speed Mock Test</p>
+<p class="text-[11px] text-slate-400">Saturday • 2:00 PM (90 mins timed drill)</p>
+</div>
+<span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-300">Registered</span>
+</div>
+<!-- Item 3 -->
+<div class="p-3 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3">
+<div class="w-2 h-2 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0"></div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-semibold text-white truncate">Resume Freeze Deadline for Microsoft</p>
+<p class="text-[11px] text-slate-400">In 3 Days • Requires 85+ ATS score</p>
+</div>
+<span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-300">Ready</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. AI PLACEMENT ASSISTANT -->
+<section class="space-y-6" id="ai-assistant">
+<div class="flex items-center justify-between pb-2 border-b border-white/10">
+<div>
+<div class="flex items-center gap-2 text-cyan-400 text-xs font-mono uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+<span>Real-Time Career Intelligence</span>
+</div>
+<h2 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1">
+            AI Placement Assistant
+          </h2>
+<p class="text-xs sm:text-sm text-slate-400 mt-0.5">Instant company insights, technical drilldowns, and salary negotiation parameters.</p>
+</div>
+<div class="hidden sm:flex items-center gap-2 bg-brand-electric/10 border border-brand-electric/30 px-3 py-1 rounded-full text-xs font-mono text-cyan-400">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+<span>CampusBrain v4.2 • Placement Tuned</span>
+</div>
+</div>
+<!-- Glass Terminal Card -->
+<div class="glass-card rounded-2xl p-6 sm:p-8 glow-border shadow-2xl relative overflow-hidden">
+<!-- Large Conversational Search Input -->
+<div class="relative">
+<div class="relative flex items-center">
+<input class="w-full bg-navy-950/90 border border-white/15 focus:border-cyan-400/60 rounded-xl px-5 py-4 pl-12 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-electric/40 transition-all font-sans" id="ai-query-input" placeholder="Ask anything about placements (e.g. Goldman Sachs OA format, Amazon Bar Raiser questions, Java concurrency)..." type="text"/>
+<span class="material-symbols-outlined text-slate-400 absolute left-4 text-[22px]">psychology</span>
+<button class="absolute right-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-electric to-blue-600 hover:from-blue-600 hover:to-indigo-600 text-white font-display font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-brand-electric/30 transition-all" id="ask-ai-button" onclick="executeAskAI()">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+<span>Ask AI</span>
+</button>
+</div>
+<!-- Suggested Prompt Chips -->
+<div class="mt-4 flex flex-wrap items-center gap-2">
+<span class="text-xs text-slate-400 font-mono mr-1">Suggested:</span>
+<button class="text-xs px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all" onclick="fillQuery('How can I improve my resume for Tier-1 Tech companies?')">
+              How can I improve my resume?
+            </button>
+<button class="text-xs px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all" onclick="fillQuery('Prepare me for a Java SDE interview: multithreading &amp; JVM')">
+              Prepare me for a Java interview
+            </button>
+<button class="text-xs px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all" onclick="fillQuery('What high-impact skills should freshers learn for 2025 backend roles?')">
+              What skills should I learn?
+            </button>
+<button class="text-xs px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-all" onclick="fillQuery('Goldman Sachs OA pattern and aptitude question weightage')">
+              Goldman Sachs OA pattern
+            </button>
+</div>
+</div>
+<!-- Structured AI Output Container -->
+<div class="mt-8 pt-6 border-t border-white/10 space-y-5" id="ai-response-container">
+<!-- Metadata Bar -->
+<div class="flex flex-wrap items-center justify-between gap-3 bg-white/5 p-3.5 rounded-xl border border-white/5">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-brand-electric/20 border border-brand-electric/40 flex items-center justify-center text-cyan-400">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div>
+<p class="text-xs font-bold text-white font-display">Target: Amazon SDE-1 &amp; Google L3 Interview Calibration</p>
+<p class="text-[11px] text-slate-400 font-mono">Calibrated across 1,240 campus rounds in 2024–2025</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-xs text-slate-300 hover:text-white bg-navy-900 border border-white/10 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors" onclick="copyAIData()">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span id="copy-btn-txt">Copy to Notes</span>
+</button>
+<button class="text-xs text-slate-300 hover:text-white bg-navy-900 border border-white/10 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">quiz</span>
+<span>Generate Mock Quiz</span>
+</button>
+</div>
+</div>
+<!-- Structured 3-column analysis -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Focus topics -->
+<div class="p-4 rounded-xl bg-navy-950/70 border border-white/5 space-y-3">
+<div class="flex items-center gap-2 text-cyan-400">
+<span class="material-symbols-outlined text-[18px]">target</span>
+<h4 class="text-xs font-bold font-mono uppercase tracking-wider">High Probability Areas</h4>
+</div>
+<ul class="text-xs text-slate-300 space-y-2">
+<li class="flex items-start gap-2">
+<span class="text-cyan-400 font-bold">•</span>
+<span><strong>Graphs:</strong> Dijkstra, Topological Sort, Disjoint Set Union (DSU).</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-cyan-400 font-bold">•</span>
+<span><strong>DP:</strong> Longest Common Subsequence &amp; Knapsack variations.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-cyan-400 font-bold">•</span>
+<span><strong>OS &amp; Concurrency:</strong> Mutex locks, deadlock detection, thread pools.</span>
+</li>
+</ul>
+</div>
+<!-- STAR Method Simulator -->
+<div class="p-4 rounded-xl bg-navy-950/70 border border-white/5 space-y-3">
+<div class="flex items-center gap-2 text-purple-400">
+<span class="material-symbols-outlined text-[18px]">psychology_alt</span>
+<h4 class="text-xs font-bold font-mono uppercase tracking-wider">Behavioral STAR Framework</h4>
+</div>
+<div class="text-xs text-slate-300 space-y-1.5">
+<p class="font-medium text-white">Amazon Leadership Principle: <em>Deliver Results &amp; Customer Obsession</em></p>
+<p class="text-slate-400 leading-relaxed text-[11px]">
+                  "Situation: Capstone latency exceeded 800ms. Task: Reduce response to &lt;200ms. Action: Implemented Redis caching + optimized indexed queries. Result: Achieved 140ms latency (82% reduction)."
+                </p>
+</div>
+</div>
+<!-- Recruiter Insights -->
+<div class="p-4 rounded-xl bg-navy-950/70 border border-white/5 space-y-3">
+<div class="flex items-center gap-2 text-emerald-400">
+<span class="material-symbols-outlined text-[18px]">insights</span>
+<h4 class="text-xs font-bold font-mono uppercase tracking-wider">Recruiter Cutoff Stats</h4>
+</div>
+<div class="space-y-2 text-xs">
+<div class="flex justify-between">
+<span class="text-slate-400">OA Problem Cutoff:</span>
+<span class="text-white font-mono font-semibold">2 of 2 full test cases</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-400">Time Limit:</span>
+<span class="text-white font-mono font-semibold">70 mins</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-400">Code Quality Weight:</span>
+<span class="text-emerald-400 font-mono font-semibold">30% of total score</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. IMPRESSIVE RESUME ATS & COMPETENCY ANALYZER -->
+<section class="space-y-6" id="resume-analyzer">
+<div class="flex items-center justify-between pb-2 border-b border-white/10">
+<div>
+<div class="flex items-center gap-2 text-cyan-400 text-xs font-mono uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-[16px]">fact_check</span>
+<span>Intelligent ATS Parser &amp; Benchmark Engine</span>
+</div>
+<h2 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1">
+            Resume Competency &amp; ATS Audit
+          </h2>
+<p class="text-xs sm:text-sm text-slate-400 mt-0.5">Scanned against Workday, Greenhouse &amp; Tier-1 Tech Recruiter Filters.</p>
+</div>
+<div class="hidden sm:flex items-center gap-2">
+<span class="text-xs text-slate-400 font-mono">Last scanned: 14 mins ago</span>
+</div>
+</div>
+<!-- Two-Column Split Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left: Upload Zone & Document Meta (5 cols) -->
+<div class="lg:col-span-5 glass-card rounded-2xl p-6 glow-border flex flex-col justify-between space-y-6">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold font-display uppercase tracking-wider text-slate-200">Candidate File</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                Ready for Screening
+              </span>
+</div>
+<!-- Upload Dropzone Box -->
+<div class="relative rounded-xl border-2 border-dashed border-brand-electric/40 bg-navy-950/60 p-6 text-center hover:border-cyan-400 transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-brand-electric/15 border border-brand-electric/30 text-cyan-400 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">picture_as_pdf</span>
+</div>
+<h4 class="text-sm font-bold text-white font-display">Resume_Arjun_Sharma_SDE.pdf</h4>
+<p class="text-[11px] text-slate-400 mt-0.5 font-mono">380 KB • Single Page • Harvard Format</p>
+<div class="mt-4 flex items-center justify-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-200 transition-all">
+                  Re-upload PDF
+                </button>
+<button class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-400 hover:text-red-400 transition-all">
+                  Remove
+                </button>
+</div>
+</div>
+<!-- File Integrity Checklist -->
+<div class="mt-6 space-y-2.5">
+<span class="text-xs font-semibold text-slate-300 font-display block">Parser Verification Checks</span>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-navy-950/80 border border-white/5 text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-400 text-[18px]">check_circle</span>
+<span class="text-slate-300">ATS Text Extractability</span>
+</div>
+<span class="text-emerald-400 font-mono font-semibold">100% Parsed</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-navy-950/80 border border-white/5 text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-400 text-[18px]">check_circle</span>
+<span class="text-slate-300">Single Column Layout</span>
+</div>
+<span class="text-emerald-400 font-mono font-semibold">Optimal</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-navy-950/80 border border-white/5 text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-400 text-[18px]">check_circle</span>
+<span class="text-slate-300">Word Count Density</span>
+</div>
+<span class="text-cyan-400 font-mono font-semibold">480 Words (Ideal)</span>
+</div>
+</div>
+</div>
+<!-- Bottom Scan Button -->
+<div class="pt-4 border-t border-white/10">
+<button class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-electric to-blue-600 hover:from-blue-600 hover:to-indigo-600 text-white font-display font-semibold text-xs flex items-center justify-center gap-2 shadow-lg shadow-brand-electric/25 transition-all" id="reanalyze-btn" onclick="simulateReanalysis()">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+<span>Re-Analyze Resume</span>
+</button>
+</div>
+</div>
+<!-- Right: Comprehensive ATS Breakdown (7 cols) -->
+<div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-7 glow-border space-y-6">
+<!-- Top Score Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-gradient-to-r from-navy-950/90 to-brand-electric/10 border border-white/10">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-navy-900 border border-cyan-400/40 flex flex-col items-center justify-center text-center shadow-lg">
+<span class="text-2xl font-extrabold font-display text-white">88</span>
+<span class="text-[10px] text-slate-400 font-mono leading-none">/ 100</span>
+</div>
+<div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  Grade A • Tier-1 Ready
+                </span>
+<h3 class="text-base font-bold font-display text-white mt-1">High SDE-1 Recruiter Match</h3>
+<p class="text-xs text-slate-400">Validated for Microsoft, Google, Atlassian &amp; Goldman Sachs drives.</p>
+</div>
+</div>
+<button class="px-3.5 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-cyan-300 flex items-center gap-1.5 self-start sm:self-center transition-all">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Export Audit</span>
+</button>
+</div>
+<!-- Strengths vs Missing Gaps -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Strengths -->
+<div class="p-4 rounded-xl bg-navy-950/70 border border-emerald-500/20 space-y-2.5">
+<div class="flex items-center gap-1.5 text-emerald-400">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<h4 class="text-xs font-bold font-mono uppercase">Detected Strengths</h4>
+</div>
+<ul class="text-xs text-slate-300 space-y-2">
+<li class="flex items-start gap-1.5">
+<span class="text-emerald-400 font-bold">✓</span>
+<span>Clear quantifiable metric framing (e.g. <em>"reduced query latency by 35%"</em>).</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-emerald-400 font-bold">✓</span>
+<span>Active GitHub &amp; Codeforces profiles verified via clickable hyperlinked tags.</span>
+</li>
+</ul>
+</div>
+<!-- Missing Skills -->
+<div class="p-4 rounded-xl bg-navy-950/70 border border-amber-500/20 space-y-2.5">
+<div class="flex items-center gap-1.5 text-amber-400">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+<h4 class="text-xs font-bold font-mono uppercase">Missing Role Keywords</h4>
+</div>
+<ul class="text-xs text-slate-300 space-y-2">
+<li class="flex items-start gap-1.5">
+<span class="text-amber-400 font-bold">!</span>
+<span>Missing <strong>Docker / Kubernetes</strong> containerization keywords.</span>
+</li>
+<li class="flex items-start gap-1.5">
+<span class="text-amber-400 font-bold">!</span>
+<span>Missing <strong>Redis / Caching</strong> terms for distributed backend projects.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- 1-Click Improvement Suggestions -->
+<div class="p-4 rounded-xl bg-brand-electric/5 border border-brand-electric/20 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold font-display text-white flex items-center gap-1.5">
+<span class="material-symbols-outlined text-cyan-400 text-[18px]">bolt</span>
+<span>AI Recommended Action (+6 Score Potential)</span>
+</span>
+<span class="text-[10px] font-mono text-cyan-400">Instant Fix</span>
+</div>
+<div class="space-y-2">
+<div class="p-2.5 rounded-lg bg-navy-950/80 border border-white/5 flex items-center justify-between gap-3 text-xs">
+<span class="text-slate-300">Replace passive verb: "Helped build backend APIs" ➔ <strong>"Architected &amp; deployed 12 RESTful microservices"</strong></span>
+<button class="px-2.5 py-1 rounded bg-brand-electric text-white text-[11px] font-semibold hover:bg-blue-600 transition-colors" onclick="applyFix(this)">
+                  Auto-Fix
+                </button>
+</div>
+<div class="p-2.5 rounded-lg bg-navy-950/80 border border-white/5 flex items-center justify-between gap-3 text-xs">
+<span class="text-slate-300">Add live production demo deployment link to Capstone Distributed Chat Project</span>
+<button class="px-2.5 py-1 rounded bg-white/10 hover:bg-white/15 text-slate-200 text-[11px] font-semibold transition-colors" onclick="applyFix(this)">
+                  Apply
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. PLACEMENT PREPARATION HUB (6 DISTINCT MODULE CARDS) -->
+<section class="space-y-6" id="prep-hub">
+<div class="flex items-center justify-between pb-2 border-b border-white/10">
+<div>
+<div class="flex items-center gap-2 text-cyan-400 text-xs font-mono uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-[16px]">school</span>
+<span>Comprehensive Curriculum</span>
+</div>
+<h2 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1">
+            Placement Preparation Hub
+          </h2>
+<p class="text-xs sm:text-sm text-slate-400 mt-0.5">Six hyper-specialized modules crafted to crack each round of Tier-1 campus hiring.</p>
+</div>
+</div>
+<!-- 6 Differentiated Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Module 1: AI Mock Interview (Hero Card with glowing border) -->
+<div class="glass-card rounded-2xl p-6 glow-border glass-card-hover transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[26px]">video_camera_front</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/30 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+<span>Live Cam AI Avatar</span>
+</span>
+</div>
+<h3 class="text-lg font-bold font-display text-white">AI Mock Interview Simulator</h3>
+<p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Adaptive real-time interview engine assessing eye contact, articulation pacing, STAR response structure, and technical depth.
+            </p>
+<div class="mt-4 flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">STAR Evaluator</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Real-time Feedback</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/15 text-purple-300">Confidence Score</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+<span class="text-xs text-slate-400 font-mono">Difficulty: High</span>
+<button class="text-xs font-semibold text-purple-400 hover:text-purple-300 flex items-center gap-1">
+<span>Launch Session</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Module 2: Coding Practice (LeetCode Style) -->
+<div class="glass-card rounded-2xl p-6 glass-card-hover transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[26px]">terminal</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+                350+ Solved
+              </span>
+</div>
+<h3 class="text-lg font-bold font-display text-white">Coding Practice &amp; OA Drills</h3>
+<p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Curated company-wise tracks (Amazon 50, Google 75) with runtime complexity telemetry and hidden edge-case testing.
+            </p>
+<div class="mt-4 flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">DP &amp; Graphs</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">OA Speedrun</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300">C++ / Java / Python</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+<span class="text-xs text-slate-400 font-mono">Daily Target: 2/3</span>
+<button class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+<span>Open Code Arena</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Module 3: Aptitude & Cognitive Drills -->
+<div class="glass-card rounded-2xl p-6 glass-card-hover transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[26px]">calculate</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                Speed Math
+              </span>
+</div>
+<h3 class="text-lg font-bold font-display text-white">Aptitude &amp; Reasoning Bank</h3>
+<p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Targeted drills for Goldman Sachs, TCS Digital &amp; Capgemini aptitude elimination rounds with shortcut methodologies.
+            </p>
+<div class="mt-4 flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Quantitative</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Data Interpretation</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/15 text-amber-300">60s Timer</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+<span class="text-xs text-slate-400 font-mono">Accuracy: 88%</span>
+<button class="text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1">
+<span>Start Speed Quiz</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Module 4: Resume Masterclass & LaTeX Templates -->
+<div class="glass-card rounded-2xl p-6 glass-card-hover transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/40 text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[26px]">history_edu</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">
+                LaTeX &amp; Docs
+              </span>
+</div>
+<h3 class="text-lg font-bold font-display text-white">Resume Improvement Masterclass</h3>
+<p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Harvard-approved single column templates, high-impact action verb dictionaries, and recruiter readability audits.
+            </p>
+<div class="mt-4 flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Overleaf Ready</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Bullet Formula</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/15 text-blue-300">Keyword Injector</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+<span class="text-xs text-slate-400 font-mono">12 Templates</span>
+<button class="text-xs font-semibold text-blue-400 hover:text-blue-300 flex items-center gap-1">
+<span>Browse Templates</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Module 5: HR & Leadership Principles -->
+<div class="glass-card rounded-2xl p-6 glass-card-hover transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[26px]">handshake</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                Culture Fit
+              </span>
+</div>
+<h3 class="text-lg font-bold font-display text-white">HR &amp; Leadership Scenarios</h3>
+<p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Master the Amazon 16 Leadership Principles, conflict resolution scenarios, explaining academic backlogs, and salary negotiation.
+            </p>
+<div class="mt-4 flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Amazon 16 LPs</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Gap Years FAQ</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300">Offer Counter</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+<span class="text-xs text-slate-400 font-mono">150+ Questions</span>
+<button class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
+<span>Explore HR Prep</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Module 6: Role-Based Skill Roadmap -->
+<div class="glass-card rounded-2xl p-6 glass-card-hover transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[26px]">route</span>
+</div>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">
+                Adaptive
+              </span>
+</div>
+<h3 class="text-lg font-bold font-display text-white">Personalized Skill Navigator</h3>
+<p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Dynamic gap analysis recommending weekly milestones based on your company target list (FinTech, FAANG, AI Startups).
+            </p>
+<div class="mt-4 flex flex-wrap gap-1.5">
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Target Mapping</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300">Weekly Milestones</span>
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/15 text-indigo-300">SDE-1 / Data</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+<span class="text-xs text-slate-400 font-mono">Status: 4/6 Completed</span>
+<button class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+<span>View Path</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. PERSONALIZED ROADMAP (VISUAL TIMELINE) -->
+<section class="space-y-6" id="career-roadmap">
+<div class="flex items-center justify-between pb-2 border-b border-white/10">
+<div>
+<div class="flex items-center gap-2 text-cyan-400 text-xs font-mono uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-[16px]">timeline</span>
+<span>Placement Journey</span>
+</div>
+<h2 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1">
+            Personalized Career Roadmap
+          </h2>
+<p class="text-xs sm:text-sm text-slate-400 mt-0.5">Your step-by-step verified path to day-1 marquee offers.</p>
+</div>
+<span class="text-xs font-mono text-cyan-400 bg-cyan-400/10 px-3 py-1 rounded-full border border-cyan-400/30">
+          65% Journey Complete
+        </span>
+</div>
+<!-- Horizontal Timeline Flow -->
+<div class="glass-card rounded-2xl p-6 sm:p-8 glow-border overflow-x-auto">
+<div class="min-w-[850px] relative py-4">
+<!-- Central Connecting Line -->
+<div class="absolute top-1/2 left-0 right-0 h-1 bg-slate-800 -translate-y-1/2 z-0"></div>
+<div class="absolute top-1/2 left-0 w-[55%] h-1 bg-gradient-to-r from-emerald-500 via-cyan-400 to-brand-electric -translate-y-1/2 z-0"></div>
+<!-- Milestones Grid -->
+<div class="relative z-10 grid grid-cols-6 gap-4">
+<!-- Step 1: Resume -->
+<div class="flex flex-col items-center text-center space-y-2">
+<div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30 ring-4 ring-navy-950">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<span class="text-[11px] font-mono text-emerald-400 font-semibold uppercase">Step 01 • Done</span>
+<p class="text-xs font-bold text-white">Resume V4 Audit</p>
+<span class="text-[10px] text-slate-400">Score: 88/100</span>
+</div>
+<!-- Step 2: Skills -->
+<div class="flex flex-col items-center text-center space-y-2">
+<div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30 ring-4 ring-navy-950">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</div>
+<span class="text-[11px] font-mono text-emerald-400 font-semibold uppercase">Step 02 • Done</span>
+<p class="text-xs font-bold text-white">Core Skills Benchmarking</p>
+<span class="text-[10px] text-slate-400">DSA &amp; OS Verified</span>
+</div>
+<!-- Step 3: Aptitude (Active) -->
+<div class="flex flex-col items-center text-center space-y-2">
+<div class="w-10 h-10 rounded-full bg-brand-electric text-white flex items-center justify-center shadow-lg shadow-brand-electric/50 ring-4 ring-navy-950 animate-pulse">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</div>
+<span class="text-[11px] font-mono text-cyan-400 font-semibold uppercase">Step 03 • In Progress</span>
+<p class="text-xs font-bold text-white">Aptitude Sprint</p>
+<span class="text-[10px] text-cyan-300 font-mono">12 of 15 Drills Done</span>
+</div>
+<!-- Step 4: Technical Interview -->
+<div class="flex flex-col items-center text-center space-y-2">
+<div class="w-10 h-10 rounded-full bg-navy-900 border-2 border-slate-700 text-slate-400 flex items-center justify-center ring-4 ring-navy-950">
+<span class="material-symbols-outlined text-[18px]">code</span>
+</div>
+<span class="text-[11px] font-mono text-slate-400 font-semibold uppercase">Step 04 • Upcoming</span>
+<p class="text-xs font-bold text-slate-300">Tech Mocks</p>
+<span class="text-[10px] text-slate-400">Scheduled: Nov 12</span>
+</div>
+<!-- Step 5: HR & Behavioral -->
+<div class="flex flex-col items-center text-center space-y-2">
+<div class="w-10 h-10 rounded-full bg-navy-900 border-2 border-slate-700 text-slate-400 flex items-center justify-center ring-4 ring-navy-950">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+</div>
+<span class="text-[11px] font-mono text-slate-400 font-semibold uppercase">Step 05 • Upcoming</span>
+<p class="text-xs font-bold text-slate-300">HR &amp; Culture Fit</p>
+<span class="text-[10px] text-slate-400">Amazon 16 LP Prep</span>
+</div>
+<!-- Step 6: Placement Ready -->
+<div class="flex flex-col items-center text-center space-y-2">
+<div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-electric to-brand-purple text-white flex items-center justify-center shadow-lg ring-4 ring-navy-950">
+<span class="material-symbols-outlined text-[20px]">military_tech</span>
+</div>
+<span class="text-[11px] font-mono text-purple-400 font-semibold uppercase">Final Goal</span>
+<p class="text-xs font-bold text-white">Placement Ready 🎯</p>
+<span class="text-[10px] text-slate-400">Day-1 Marquee</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. "RECOMMENDED FOR YOU" DYNAMIC INSIGHTS -->
+<section class="space-y-4">
+<div class="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">
+<span class="material-symbols-outlined text-[16px]">recommend</span>
+<span>AI Personalized Recommendations for Arjun</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Rec 1 -->
+<div class="p-4 rounded-xl glass-card border border-white/10 hover:border-brand-electric/40 transition-all flex items-start gap-3">
+<div class="p-2 rounded-lg bg-blue-500/10 text-blue-400 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</div>
+<div>
+<span class="text-[10px] font-mono uppercase text-blue-400 font-semibold">Critical Priority</span>
+<h4 class="text-xs font-bold text-white mt-0.5">Master Concurrency &amp; Thread Safety in Java</h4>
+<p class="text-[11px] text-slate-400 mt-1">Frequently tested in Morgan Stanley and Goldman Sachs technical rounds.</p>
+</div>
+</div>
+<!-- Rec 2 -->
+<div class="p-4 rounded-xl glass-card border border-white/10 hover:border-cyan-400/40 transition-all flex items-start gap-3">
+<div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">speed</span>
+</div>
+<div>
+<span class="text-[10px] font-mono uppercase text-cyan-400 font-semibold">Aptitude Target</span>
+<h4 class="text-xs font-bold text-white mt-0.5">Goldman Sachs Numerical Reasoning Sprint</h4>
+<p class="text-[11px] text-slate-400 mt-1">Complete 3 mini-drills under 25 minutes to lock in 90th percentile.</p>
+</div>
+</div>
+<!-- Rec 3 -->
+<div class="p-4 rounded-xl glass-card border border-white/10 hover:border-purple-400/40 transition-all flex items-start gap-3">
+<div class="p-2 rounded-lg bg-purple-500/10 text-purple-400 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<div>
+<span class="text-[10px] font-mono uppercase text-purple-400 font-semibold">1-Hour Revision</span>
+<h4 class="text-xs font-bold text-white mt-0.5">Revise Database Isolation Levels &amp; Indexing</h4>
+<p class="text-[11px] text-slate-400 mt-1">Directly addresses detected interview weakness from previous mock.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. SYSTEM STATES & EVALUATOR TOOLBAR -->
+<section class="p-4 rounded-2xl bg-navy-950/80 border border-white/10 text-xs">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-cyan-400 text-[18px]">developer_mode</span>
+<span class="font-display font-semibold text-white">University Placement Cell Evaluator Sandbox</span>
+<span class="text-[10px] text-slate-400 font-mono">Interactive State Toggles</span>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<button class="px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/15 text-slate-200 text-xs font-mono" onclick="setSystemState('normal')">Normal</button>
+<button class="px-2.5 py-1 rounded-md bg-brand-electric/20 hover:bg-brand-electric/30 text-cyan-300 text-xs font-mono" onclick="setSystemState('loading')">Simulate AI Loading</button>
+<button class="px-2.5 py-1 rounded-md bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-mono" onclick="setSystemState('warning')">Simulate ATS Warning</button>
+</div>
+</div>
+</section>
+</main>
+<!-- 10. COLLEGIATE FOOTER -->
+<footer class="w-full bg-navy-950 border-t border-white/10 py-12 mt-auto relative z-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-white/10">
+<!-- Col 1: Brand & Affiliation -->
+<div class="md:col-span-2 space-y-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg overflow-hidden p-0.5 bg-gradient-to-tr from-brand-electric to-brand-cyan">
+<img alt="Logo" class="w-full h-full object-cover rounded-md" src="https://lh3.googleusercontent.com/aida/AEtjO1ULTyFmLpx9DrCZxYULpSEN1-hM_Y6HNbOVmRcu5ZOBG-uZoGQtdiBhN5HHzfUo17asFC0PtXDZ-I_yzdSRMlOUyNJRaz0fq1ZEJQvtPC96fWx6agvv-VQ7qQ-ImQoKkgDeeCGZfzu5h0HxnEG5fMJcHwok0pgGbjeZ0mfHFlf8-rOsCR0UIbkvx5p3rWvFiQ0ZxxBcfq0HZAU5bcLVY3X499643PuAPlUfZuI3Eq8XvrLdsUL5K37CPkmR"/>
+</div>
+<span class="font-display font-bold text-white text-base">Campus Placement AI</span>
+</div>
+<p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+            Standardized artificial intelligence career co-pilot deployed across Engineering, MCA, and Management university placement faculties.
+          </p>
+<p class="text-[11px] text-cyan-400 font-mono">
+            Accredited by Central Placement Cell (CPC) • University Drive Season 2024–2025
+          </p>
+</div>
+<!-- Col 2: Quick Links -->
+<div class="space-y-2">
+<span class="text-xs font-bold text-white font-mono uppercase tracking-wider block mb-2">Student Toolkits</span>
+<ul class="text-xs text-slate-400 space-y-1.5">
+<li><a class="hover:text-cyan-400 transition-colors" href="#resume-analyzer">ATS Resume Checker</a></li>
+<li><a class="hover:text-cyan-400 transition-colors" href="#prep-hub">STAR Framework Drills</a></li>
+<li><a class="hover:text-cyan-400 transition-colors" href="#career-roadmap">Day-1 Drive Calendar</a></li>
+<li><a class="hover:text-cyan-400 transition-colors" href="#ai-assistant">Salary Benchmark Matrix</a></li>
+</ul>
+</div>
+<!-- Col 3: Placement Ethics -->
+<div class="space-y-2">
+<span class="text-xs font-bold text-white font-mono uppercase tracking-wider block mb-2">Governance &amp; Support</span>
+<ul class="text-xs text-slate-400 space-y-1.5">
+<li><a class="hover:text-cyan-400 transition-colors" href="#">Placement Code of Conduct</a></li>
+<li><a class="hover:text-cyan-400 transition-colors" href="#">AI Bias &amp; Fairness Policy</a></li>
+<li><a class="hover:text-cyan-400 transition-colors" href="#">Student Privacy Safeguards</a></li>
+<li><a class="hover:text-cyan-400 transition-colors" href="#">Placement Cell Helpdesk</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
+<p>© 2025 Campus Placement AI. All rights reserved across partner institutions.</p>
+<div class="flex items-center gap-4">
+<span>Security: SOC2 &amp; FERPA Aligned</span>
+<span>•</span>
+<span class="text-emerald-400">All Systems Operational</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- SCRIPT LOGIC FOR REAL INTERACTIVITY -->
+<script>
+    function fillQuery(text) {
+      const input = document.getElementById('ai-query-input');
+      if (input) {
+        input.value = text;
+        input.focus();
+      }
+    }
+
+    function executeAskAI() {
+      const btn = document.getElementById('ask-ai-button');
+      const input = document.getElementById('ai-query-input');
+      const container = document.getElementById('ai-response-container');
+      const originalHTML = btn.innerHTML;
+
+      btn.disabled = true;
+      btn.innerHTML = `<span class="material-symbols-outlined text-[16px] animate-spin">sync</span><span>Analyzing...</span>`;
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalHTML;
+        if (container) {
+          container.classList.add('ring-2', 'ring-cyan-400');
+          setTimeout(() => container.classList.remove('ring-2', 'ring-cyan-400'), 1500);
+          container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 700);
+    }
+
+    function copyAIData() {
+      const btnText = document.getElementById('copy-btn-txt');
+      if (btnText) {
+        btnText.innerText = "Copied to Clipboard!";
+        setTimeout(() => btnText.innerText = "Copy to Notes", 2000);
+      }
+    }
+
+    function simulateReanalysis() {
+      const btn = document.getElementById('reanalyze-btn');
+      if (btn) {
+        const orig = btn.innerHTML;
+        btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Benchmarking Against SDE-1 Cohort...</span>`;
+        setTimeout(() => {
+          btn.innerHTML = orig;
+        }, 1200);
+      }
+    }
+
+    function applyFix(btn) {
+      btn.innerText = "Applied ✓";
+      btn.classList.remove('bg-brand-electric');
+      btn.classList.add('bg-emerald-600', 'text-white');
+      btn.disabled = true;
+    }
+
+    function startMockSim() {
+      alert("Initializing AI Mock Interview Simulation Environment with Proctoring Avatar...");
+    }
+
+    function setSystemState(state) {
+      const responseCont = document.getElementById('ai-response-container');
+      if (!responseCont) return;
+
+      if (state === 'loading') {
+        responseCont.innerHTML = `
+          <div class="p-6 rounded-xl bg-navy-950/90 border border-brand-electric/40 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-cyan-400 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                <span>Synthesizing Placement Data from 40 Recruiters...</span>
+              </span>
+              <span class="text-xs font-mono text-slate-400">72%</span>
+            </div>
+            <div class="space-y-2">
+              <div class="w-full h-3 bg-white/10 rounded animate-pulse"></div>
+              <div class="w-5/6 h-3 bg-white/10 rounded animate-pulse"></div>
+              <div class="w-2/3 h-3 bg-white/10 rounded animate-pulse"></div>
+            </div>
+          </div>
+        `;
+      } else if (state === 'warning') {
+        responseCont.innerHTML = `
+          <div class="p-5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs space-y-2">
+            <div class="flex items-center gap-2 font-bold font-display text-amber-300">
+              <span class="material-symbols-outlined text-[18px]">warning</span>
+              <span>Non-fatal Format Warning Detected</span>
+            </div>
+            <p>Workday parser may not parse two-column LaTeX tables cleanly. We suggest utilizing the approved Harvard single-column template from Module 04.</p>
+          </div>
+        `;
+      } else {
+        // Reset to normal
+        location.reload();
+      }
+    }
+  </script>
+</body></html>

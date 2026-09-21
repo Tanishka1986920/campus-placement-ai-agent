@@ -1,0 +1,5 @@
+John Doe
+Email: john@example.com
+Education: BSc Computer Science
+Experience: Internship at ExampleCorp
+Skills: Python, FastAPI, ML
